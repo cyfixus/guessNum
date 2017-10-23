@@ -95,6 +95,9 @@ void gameLoop()
     std::cout << "\nThink of a number between 1 and 31\nYou will be shown some"
                  " cards with numbers on them, and be asked whether or not the"
                  " number you've chosen is present among the 16 visible\n\n";
+    std::cout << "\nPress any key when ready.\n";
+    std::string cont;
+    std::getline(std::cin, cont);
     std::array<int,5> cards {0,1,2,3,4};
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     shuffle (cards.begin(), cards.end(), std::default_random_engine(seed));
