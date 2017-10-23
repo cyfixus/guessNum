@@ -15,7 +15,5 @@ using std::string;
 
 bool isValidInt(string);
 int getValidInt(string);
-bool isValidDouble(string);
-double getValidDouble(string);
 
 #endif
