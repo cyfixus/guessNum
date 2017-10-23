@@ -1,9 +1,21 @@
+/******************************************************************************
+ * Author: Sean Foster                                                <num.cpp>
+ * Date: 10/23/2017
+ * Description: Asks the player to think of a number from 1 to 31 then presents
+ *              five cards, shuffled, to the player. If the player indicates
+ *              the presence of the number, the appropriate bit is toggled. The
+ *              end result of the toggled bits is the player's number.
+******************************************************************************/
 #include "menu.hpp"
 #include <algorithm>
 #include <random>
 #include <chrono>
 #include <array>
 
+
+/******************************************************************************
+ * cardStrings returns the corresponding cardString
+******************************************************************************/
 string cardStrings(int card)
 {
   string cardA = "\nDo you see your number below?"
@@ -52,6 +64,10 @@ string cardStrings(int card)
   return cardA;
 }
 
+/******************************************************************************
+ * checkCard calls the menu on the card string to gather whether or not the 
+ * player's number is on a particular card.
+******************************************************************************/
 int checkCard(int card)
 {
   int present = 0;
@@ -64,7 +80,14 @@ int checkCard(int card)
 }
 
 
-int main()
+/******************************************************************************
+ * gameLoop provides the player instructions, then shuffles the array of
+ * cards to present them in a random order to the player. The secret number
+ * starts at 0 and is successively OR'd with the appropriate int representation
+ * of the bit place. The result of checking each of appropriately toggling the
+ * first five bit places will result arriving at the player's number. 
+******************************************************************************/
+void gameLoop()
 {
   bool playAgain = true;
   while(playAgain)
@@ -104,5 +127,13 @@ int main()
     if(choice ==2)
       playAgain = false;
   }
+}
+
+/******************************************************************************
+ * calls the gameLoop
+******************************************************************************/
+int main()
+{
+  gameLoop();
   return 0;
 }
